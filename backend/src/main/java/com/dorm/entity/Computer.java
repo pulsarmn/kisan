@@ -25,7 +25,7 @@ public class Computer {
     @ManyToOne(fetch = FetchType.LAZY)
     private Classroom classroom;
 
-    private enum Status {
+    public enum Status {
         NO_PROBLEM,
         DEFECTIVE,
         BROKEN,
