@@ -34,7 +34,16 @@ div {
     display: flex;
     gap: 48px;
     color: white;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
 }
+
+.list form {
+    width: 100%;
+}
+
+
 
 .userMenu  {
     background-color: white;
@@ -61,4 +70,17 @@ div {
 .userMenu button:hover {
     background-color: black;
     color: white;
+}
+
+.selectWrapper {
+    height: 100%;
+}
+
+.selectWrapper select {
+    background-color: black;
+    color: white;
+    width: 100%;
+    text-align: center;
+    border: none;
+    height: 100%;
 }
