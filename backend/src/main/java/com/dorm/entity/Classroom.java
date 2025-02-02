@@ -7,6 +7,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -20,4 +23,8 @@ public class Classroom {
     private Integer id;
 
     private String number;
+
+    @Builder.Default
+    @OneToMany(mappedBy = "classroom", fetch = FetchType.LAZY)
+    private List<Computer> computers = new ArrayList<>();
 }
