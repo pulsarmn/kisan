@@ -45,4 +45,9 @@ public class TicketRestController {
                         .status(HttpStatus.ACCEPTED)
                         .build());
     }
+
+    @PutMapping("/{id}")
+    public void updateTicket(@PathVariable("id") Integer id, @RequestBody UpdateTicketDto updateTicketDto) {
+        ticketService.update(id, updateTicketDto);
+    }
 }
