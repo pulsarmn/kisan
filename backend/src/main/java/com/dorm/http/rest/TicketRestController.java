@@ -1,14 +1,16 @@
 package com.dorm.http.rest;
 
+import com.dorm.dto.CreateTicketDto;
 import com.dorm.dto.ReadTicketDto;
+import com.dorm.dto.UpdateTicketDto;
 import com.dorm.service.TicketService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/tickets")
@@ -26,5 +28,10 @@ public class TicketRestController {
                 .orElse(ResponseEntity
                         .status(HttpStatus.NOT_FOUND)
                         .build());
+    }
+
+    @GetMapping
+    public List<ReadTicketDto> getAllTickets() {
+        return ticketService.findAll();
     }
 }
