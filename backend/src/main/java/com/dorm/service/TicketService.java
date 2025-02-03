@@ -2,6 +2,7 @@ package com.dorm.service;
 
 import com.dorm.dto.CreateTicketDto;
 import com.dorm.dto.ReadTicketDto;
+import com.dorm.dto.UpdateTicketDto;
 import com.dorm.entity.Ticket;
 import com.dorm.mapper.ReadTicketDtoMapper;
 import com.dorm.mapper.TicketMapper;
@@ -38,7 +39,16 @@ public class TicketService {
     public Optional<ReadTicketDto> create(CreateTicketDto ticketDto) {
         Ticket ticket = ticketMapper.mapFrom(ticketDto);
         Ticket savedTicket = ticketRepository.save(ticket);
-        
+
         return Optional.of(readTicketDtoMapper.mapFrom(savedTicket));
+    }
+
+    public void update(Integer id, UpdateTicketDto updateTicketDto) {
+        Optional<Ticket> result = ticketRepository.findById(id);
+        if (result.isPresent()) {
+            Ticket ticket = result.get();
+            ticket.setMessage(updateTicketDto.getMessage());
+            ticket.setNote(updateTicketDto.getNote());
+        }
     }
 }
