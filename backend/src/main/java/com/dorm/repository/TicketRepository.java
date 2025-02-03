@@ -8,5 +8,5 @@ import java.util.List;
 
 public interface TicketRepository extends JpaRepository<Ticket, Integer> {
 
-    List<Ticket> findByCreationDate(LocalDateTime creationDate);
+    List<Ticket> findByCreatedDate(LocalDateTime createdDate);
 }

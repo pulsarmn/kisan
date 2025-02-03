@@ -26,7 +26,7 @@ public class Computer {
     private Classroom classroom;
 
     public enum Status {
-        NO_PROBLEM,
+        OK,
         DEFECTIVE,
         BROKEN,
         IN_REPAIR,
