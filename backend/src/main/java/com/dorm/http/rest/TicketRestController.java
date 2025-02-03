@@ -34,4 +34,15 @@ public class TicketRestController {
     public List<ReadTicketDto> getAllTickets() {
         return ticketService.findAll();
     }
+
+    @PostMapping
+    public ResponseEntity<ReadTicketDto> createTicket(@Validated @RequestBody CreateTicketDto createTicketDto) {
+        return ticketService.create(createTicketDto)
+                .map(ticketDto -> ResponseEntity
+                        .status(HttpStatus.CREATED)
+                        .body(ticketDto))
+                .orElse(ResponseEntity
+                        .status(HttpStatus.ACCEPTED)
+                        .build());
+    }
 }
