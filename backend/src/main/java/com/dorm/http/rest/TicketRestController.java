@@ -50,4 +50,9 @@ public class TicketRestController {
     public void updateTicket(@PathVariable("id") Integer id, @RequestBody UpdateTicketDto updateTicketDto) {
         ticketService.update(id, updateTicketDto);
     }
+
+    @DeleteMapping("/{id}")
+    public void deleteTicket(@PathVariable("id") Integer id) {
+        ticketService.delete(id);
+    }
 }
