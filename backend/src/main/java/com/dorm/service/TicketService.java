@@ -51,4 +51,8 @@ public class TicketService {
             ticket.setNote(updateTicketDto.getNote());
         }
     }
+
+    public void delete(Integer id) {
+        ticketRepository.deleteById(id);
+    }
 }
