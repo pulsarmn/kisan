@@ -1,6 +1,8 @@
 package com.dorm.service;
 
+import com.dorm.dto.CreateTicketDto;
 import com.dorm.dto.ReadTicketDto;
+import com.dorm.entity.Ticket;
 import com.dorm.mapper.ReadTicketDtoMapper;
 import com.dorm.mapper.TicketMapper;
 import com.dorm.repository.TicketRepository;
@@ -31,5 +33,12 @@ public class TicketService {
     public Optional<ReadTicketDto> findById(Integer id) {
         return ticketRepository.findById(id)
                 .map(readTicketDtoMapper::mapFrom);
+    }
+
+    public Optional<ReadTicketDto> create(CreateTicketDto ticketDto) {
+        Ticket ticket = ticketMapper.mapFrom(ticketDto);
+        Ticket savedTicket = ticketRepository.save(ticket);
+        
+        return Optional.of(readTicketDtoMapper.mapFrom(savedTicket));
     }
 }
