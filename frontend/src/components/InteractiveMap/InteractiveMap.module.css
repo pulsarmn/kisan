@@ -1,0 +1,112 @@
+.body {
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 40.625rem;
+    height: 61.875rem;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+}
+
+.tv {
+    border: 1px solid;
+    width: 18.125rem;
+    height: 1.25rem;
+    margin: 0 auto;
+    text-align: center;
+}
+
+
+.computersGrid {
+    margin: 40px 0 0 auto;
+    display: grid;
+    width: 37.5rem;
+    height: 37.5rem;
+    grid-template-columns: repeat(5, 100px);
+    gap: 10px;
+    justify-content: end;
+}
+
+.computersGridItem {
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column-reverse;
+}
+
+.computersGridItem:first-child {
+    grid-column: 1 / span 5;
+    flex-direction: column;
+}
+
+.computersGridItem:first-child .chair {
+    transform: rotate(0deg);
+}
+
+.computersGridItem .chair {
+    width: 1.875rem;
+    height: 1.875rem;
+    transform: rotate(180deg);
+}
+
+.computersGridItem .table {
+    width: 100%;
+    height: 3.125rem;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+}
+
+.computersGridItem .button {
+    width: 100%;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+}
+
+
+.utilityRoom {
+    display: flex;
+    justify-content: end;
+}
+
+.utilityRoom img {
+    width: 350px;
+}
+
+.quit {
+    border: 3px solid gray;
+    width: 5rem;
+    /*height: 1px;*/
+    position: absolute;
+    bottom: -2px;
+    left: 5rem;
+}
+
+/**/
+
+
+/* status */
+
+.state_OK {
+    background-color: #00ff00 !important;
+}
+
+.state_DEFECTIVE {
+    background-color: yellow !important;
+}
+
+.state_BROKEN {
+    background-color: red !important;
+}
+
+.state_ABSENT {
+    background-color: darkgrey !important;
+}
+
